@@ -9,6 +9,7 @@ use Meals\Application\Component\Provider\DishProviderInterface;
 use Meals\Application\Component\Validator\PollIsActiveValidator;
 use Meals\Application\Component\Validator\UserHasAccessToParticipationPollsValidator;
 use Meals\Application\Component\Validator\VoteDateIsAvaibleValidator;
+use Meals\Domain\Date\Date;
 use Meals\Domain\Poll\PollResult;
 
 class Interactor
@@ -58,12 +59,12 @@ class Interactor
         $this->voteDateIsAvaibleValidator    = $voteDateIsAvaibleValidator;
     }
     
-    public function setPollResult(int $pollId, int $employeeId, int $dishId, $date): PollResult
+    public function setPollResult(int $pollId, int $employeeId, int $dishId, Date $date): PollResult
     {
-        $employee = $this->employeeProvider->getEmployee($employeeId);
         $poll     = $this->pollProvider->getPoll($pollId);
-        $date     = $this->dateProvider->getDate();
+        $employee = $this->employeeProvider->getEmployee($employeeId);
         $dish     = $this->dishProvider->getDish($dishId);
+        $date     = $this->dateProvider->getDate($date);
         
         $this->userHasAccessToPollsValidator->validate($employee->getUser());
         $this->voteDateIsAvaibleValidator->validate($date);
