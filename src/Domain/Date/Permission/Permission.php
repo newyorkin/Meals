@@ -1,11 +1,12 @@
 <?php
 
-namespace Meals\Domain\User\Permission;
+namespace Meals\Domain\Date\Permission;
 
-use MyCLabs\Enum\Enum;
 
-class Permission extends Enum
+class Permission
 {
-    const VIEW_ACTIVE_POLLS = 'viewActivePolls'; // возможность видеть активные опросы
-    const PARTICIPATION_IN_POLLS = 'participationInPolls'; // возможность участвовать в опросах
+    const DAY_ACTIVE_POLL = ['Mon']; // дни, когда можно участвовать в опросах
+    const HOUR_ACTIVE_POLL = [6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]; // часы когда можно участвовать в опросах
+    
+    
 }

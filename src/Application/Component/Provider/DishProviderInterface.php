@@ -2,9 +2,9 @@
 
 namespace Meals\Application\Component\Provider;
 
-use Meals\Domain\Employee\Employee;
+use Meals\Domain\Dish\Dish;
 
-interface EmployeeProviderInterface
+interface DishProviderInterface
 {
-    public function getEmployee(int $employeeId): Employee;
+    public function getDish(int $dishId): Dish;
 }

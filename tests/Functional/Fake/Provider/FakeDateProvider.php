@@ -2,21 +2,21 @@
 
 namespace tests\Meals\Functional\Fake\Provider;
 
-use Meals\Application\Component\Provider\EmployeeProviderInterface;
-use Meals\Domain\Employee\Employee;
+use Meals\Application\Component\Provider\DateProviderInterface;
+use Meals\Domain\Date\Date;
 
-class FakeEmployeeProvider implements EmployeeProviderInterface
+class FakeDateProvider implements DateProviderInterface
 {
-    /** @var Employee */
-    private $employee;
-
-    public function getEmployee(int $employeeId): Employee
+    /** @var Date */
+    private $date;
+    
+    public function getDate(): Date
     {
-        return $this->employee;
+        return $this->date;
     }
-
-    public function setEmployee(Employee $employee)
+    
+    public function setDate(Date $date)
     {
-        $this->employee = $employee;
+        $this->date = $date;
     }
 }

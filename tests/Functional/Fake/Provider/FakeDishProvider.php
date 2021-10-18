@@ -2,21 +2,21 @@
 
 namespace tests\Meals\Functional\Fake\Provider;
 
-use Meals\Application\Component\Provider\EmployeeProviderInterface;
-use Meals\Domain\Employee\Employee;
+use Meals\Application\Component\Provider\DishProviderInterface;
+use Meals\Domain\Dish\Dish;
 
-class FakeEmployeeProvider implements EmployeeProviderInterface
+class FakeDishProvider implements DishProviderInterface
 {
-    /** @var Employee */
-    private $employee;
+    /** @var dish */
+    private $dish;
 
-    public function getEmployee(int $employeeId): Employee
+    public function getDish(int $dishId): Dish
     {
-        return $this->employee;
+        return $this->dish;
     }
 
-    public function setEmployee(Employee $employee)
+    public function setDish(Dish $dish)
     {
-        $this->employee = $employee;
+        $this->dish = $dish;
     }
 }
